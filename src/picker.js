@@ -977,7 +977,9 @@ var SMDateTimePickerCtrl = function($scope, $element, $mdUtil, $mdMedia, $docume
     });
 
     self.$scope.$on('$destroy', function() {
-        self.calenderPane.parentNode.removeChild(self.calenderPane);
+        if (self.calenderPane.parentNode) {
+            self.calenderPane.parentNode.removeChild(self.calenderPane);
+        }
     });
 
     // if tab out hide key board
@@ -1393,7 +1395,9 @@ app.provider('picker', [picker]);
         });
 
         self.$scope.$on('$destroy', function() {
-            self.calenderPane.parentNode.removeChild(self.calenderPane);
+            if (self.calenderPane.parentNode) {
+                self.calenderPane.parentNode.removeChild(self.calenderPane);
+            }
             self.$scope._watch_model();
         });
 
